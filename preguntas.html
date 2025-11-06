@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cuestionario</title>
+</head>
+<style>
+</style>
+<body>
+    
+<body background="preguntas.png"></body>
+<h3>Examen de programacion Segundo Parcial</h3>
+
+<form id="quizForm">
+
+  <!-- Pregunta 1 -->
+  <p>1. ¿Ques es una libreria tpdf?</p>
+  <input type="radio" name="p1" value="0"> Un archivo <br>
+  <input type="radio" name="p1" value="1"> Es una libreria <br>   <!-- ✔ correcta -->
+  <input type="radio" name="p1" value="0"> Un documento <br><br>
+
+  <!-- Pregunta 2 -->
+  <p>2. ¿Que es una sesion php?</p>
+  <input type="radio" name="p2" value="0"> Comnando <br>
+  <input type="radio" name="p2" value="1"> Es una forma de conservar datos a lo largo <br> <!-- ✔ correcta -->
+  <input type="radio" name="p2" value="0"> Es uan forma que solo conserva puros datos <br><br>
+
+  <!-- Pregunta 3 -->
+  <p>3. ¿Cules son los Retros y los modernos?</p>
+  <input type="radio" name="p3" value="1"> Mejores materiales / Mayor variedad <br>  <!-- ✔ correcta -->
+  <input type="radio" name="p3" value="0">Mteriales / Potencia<br>
+  <input type="radio" name="p3" value="0">No estudie<br><br>
+
+  <!-- Pregunta 4 -->
+  <p>4. ¿Que es css?</p>
+  <input type="radio" name="p4" value="1">Es un simple estilo<br> <!-- ✔ correcta -->
+  <input type="radio" name="p4" value="0">Es un programa para diseñar páginas web<br>
+  <input type="radio" name="p4" value="0">Otro... <br><br>
+
+  <!-- Pregunta 5 -->
+  <p>5. ¿Que es Scrum?</p>
+  <input type="radio" name="p5" value="0">Solo es un trabajo por partes <br>
+  <input type="radio" name="p5" value="1">Solo es una metodologia utilizada para organizar<br> <!-- ✔ correcta -->
+  <input type="radio" name="p5" value="0">Otro...<br><br>
+
+  <!-- Pregunta 6 -->
+  <p>6. ¿Ques es una metodologia tradicional?</p>
+  <input type="radio" name="p6" value="0">Es un enfoque secuencial<br>
+  <input type="radio" name="p6" value="1">Es un enfoque estructurado para desarrollar<br> <!-- ✔ correcta -->
+  <input type="radio" name="p6" value="0"> Es solo un simple enfoque<br><br>
+
+  <!-- Pregunta 7 -->
+  <p>7. ¿Cules son los tipos de metodologia?</p>
+  <input type="radio" name="p7" value="1">Cascadas, Modo V<br> <!-- ✔ correcta -->
+  <input type="radio" name="p7" value="0">La tecnologia actual<br>
+  <input type="radio" name="p7" value="0">Existen 100 metodologia<br><br>
+
+  <button type="button" onclick="calcular()">Finalizar</button>
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function calcular() {
+  let total = 0;
+
+  // Recorre las 7 preguntas
+  for (let i = 1; i <= 7; i++) {
+    let respuesta = document.querySelector('input[name="p' + i + '"]:checked');
+    if (respuesta) {
+      total += parseInt(respuesta.value);
+    }
+  }
+
+  let calificacion = (total / 7) * 10; // calificación sobre 10
+
+  document.getElementById("resultado").innerHTML =
+    "Tu calificación es: " + calificacion.toFixed(1) + " / 10";
+}
+</script>
+
+</body>
+</html>
